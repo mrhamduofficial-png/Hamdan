@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hamdan AI — One Platform. Unlimited AI Power. | Free AI Tools</title>
+    <meta name="description" content="Hamdan AI offers 75+ free and premium AI tools for content writing, video editing, social media, business automation. Powered by AI. By Mr Hamdan.">
+    <meta name="keywords" content="Hamdan AI, AI tools, free AI writer, AI video editor, social media AI, business automation, Mr Hamdan">
+    <meta name="author" content="Mr Hamdan">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://hamdanai.com">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Hamdan AI — 75+ Free AI Tools">
+    <meta property="og:description" content="Create content, edit videos, automate business with AI. Free plan available.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <!-- PayPal SDK -->
+    <script src="https://www.paypal.com/sdk/js?client-id=BAAAmXuWgBJbTWKo6yUXmuzCFndJKaq6QWo19jcombcWbSMH1LcHo5x6J3RZtFJ-y95IPK2jrTF3h4Z0-M&components=hosted-buttons&disable-funding=venmo&currency=USD"></script>
+    <script>tailwind.config={theme:{extend:{colors:{dark:{900:'#0a0a0f',800:'#12121a',700:'#1a1a2e'},accent:{400:'#8b5cf6',500:'#7c3aed'},blue:{400:'#60a5fa',500:'#3b82f6'},pink:{400:'#f472b6'},green:{400:'#4ade80'}},fontFamily:{sans:['Inter','sans-serif'],display:['Space Grotesk','sans-serif']}}}}</script>
+    <style>
+    *{margin:0;padding:0;box-sizing:border-box}::selection{background:rgba(139,92,246,0.3);color:#fff}::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:#0a0a0f}::-webkit-scrollbar-thumb{background:#7c3aed;border-radius:3px}
+    .glass{background:rgba(255,255,255,0.03);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.06)}
+    .glass-strong{background:rgba(255,255,255,0.06);backdrop-filter:blur(30px);border:1px solid rgba(255,255,255,0.1)}
+    .glass-card{background:rgba(255,255,255,0.04);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.07);transition:all 0.4s cubic-bezier(0.16,1,0.3,1)}
+    .glass-card:hover{background:rgba(255,255,255,0.08);border-color:rgba(139,92,246,0.3);transform:translateY(-4px);box-shadow:0 20px 60px -15px rgba(139,92,246,0.15)}
+    .gradient-text{background:linear-gradient(135deg,#8b5cf6,#3b82f6,#06b6d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .btn-primary{background:linear-gradient(135deg,#7c3aed,#3b82f6);position:relative;overflow:hidden;transition:all 0.3s}
+    .btn-primary::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,#8b5cf6,#60a5fa);opacity:0;transition:opacity 0.3s}
+    .btn-primary:hover::before{opacity:1}.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 40px -8px rgba(124,58,237,0.5)}
+    .btn-secondary{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);transition:all 0.3s}
+    .btn-secondary:hover{background:rgba(255,255,255,0.1);border-color:rgba(139,92,246,0.4);transform:translateY(-2px)}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes scaleIn{from{opacity:0;transform:scale(0.9)}to{opacity:1;transform:scale(1)}}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}
+    .animate-float{animation:float 6s ease-in-out infinite}
+    .hero-bg{background:radial-gradient(ellipse at 50% 0%,rgba(124,58,237,0.15) 0%,transparent 60%),radial-gradient(ellipse at 80% 50%,rgba(59,130,246,0.08) 0%,transparent 50%)}
+    .tool-icon{width:48px;height:48px;display:flex;align-items:center;justify-content:center;border-radius:12px;font-size:22px;flex-shrink:0}
+    .pricing-popular{position:relative}.pricing-popular::before{content:'';position:absolute;inset:-1px;border-radius:16px;padding:1px;background:linear-gradient(135deg,#8b5cf6,#3b82f6,#06b6d4);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+    .tab-active{background:linear-gradient(135deg,rgba(139,92,246,0.2),rgba(59,130,246,0.2))!important;border-color:rgba(139,92,246,0.4)!important;color:#a78bfa!important}
+    .modal-backdrop{background:rgba(0,0,0,0.7);backdrop-filter:blur(8px)}
+    input:focus,textarea:focus{outline:none;border-color:rgba(139,92,246,0.5)!important;box-shadow:0 0 0 3px rgba(139,92,246,0.1)}
+    .typing-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:#8b5cf6;animation:tb 1.4s infinite ease-in-out}
+    .typing-dot:nth-child(1){animation-delay:0s}.typing-dot:nth-child(2){animation-delay:.2s}.typing-dot:nth-child(3){animation-delay:.4s}
+    @keyframes tb{0%,80%,100%{transform:scale(0);opacity:.4}40%{transform:scale(1);opacity:1}}
+    </style>
+</head>
+<body class="bg-dark-900 text-white font-sans overflow-x-hidden">
+<div id="toast-box" class="fixed top-20 right-4 z-[100] flex flex-col gap-2 pointer-events-none"></div>
+
+<!-- NAV -->
+<nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-500" id="navbar">
+<div class="max-w-7xl mx-auto px-4 sm:px-6"><div class="flex items-center justify-between h-16 md:h-20">
+<a href="#home" class="flex items-center gap-2"><div class="w-9 h-9 rounded-xl bg-gradient-to-br from-accent-500 to-blue-500 flex items-center justify-center"><iconify-icon icon="ri-robot-2-fill" class="text-white text-lg"></iconify-icon></div><span class="font-display font-bold text-xl">Hamdan <span class="gradient-text">AI</span></span></a>
+<div class="hidden lg:flex items-center gap-1"><a href="#home" class="px-4 py-2 text-sm text-gray-300 hover:text-white transition-colors">Home</a><a href="#tools" class="px-4 py-2 text-sm text-gray-300 hover:text-white transition-colors">AI Tools</a><a href="#about" class="px-4 py-2 text-sm text-gray-300 hover:text-white transition-colors">About</a><a href="#blog" class="px-4 py-2 text-sm text-gray-300 hover:text-white transition-colors">Blog</a><a href="#pricing" class="px-4 py-2 text-sm text-gray-300 hover:text-white transition-colors">Pricing</a><a href="#contact" class="px-4 py-2 text-sm text-gray-300 hover:text-white transition-colors">Contact</a></div>
+<div class="flex items-center gap-3"><button onclick="openM('signup-m')" class="hidden md:inline-flex btn-secondary px-4 py-2 rounded-xl text-sm font-medium">Log In</button><button onclick="openM('signup-m')" class="btn-primary px-4 py-2 rounded-xl text-sm font-medium relative z-10"><span class="relative z-10">Get Started Free</span></button><button onclick="toggleMob()" class="lg:hidden w-9 h-9 rounded-xl glass flex items-center justify-center" id="hb"><iconify-icon id="hb-i" icon="ri-menu-3-line" class="text-xl"></iconify-icon></button></div>
+</div></div>
+<div id="mob-menu" class="lg:hidden overflow-hidden transition-all duration-300 max-h-0 opacity-0"><div class="px-4 pb-6 pt-2 glass-strong rounded-b-2xl mx-4 mb-4"><div class="flex flex-col gap-1"><a href="#tools" onclick="closeMob()" class="px-4 py-3 rounded-xl text-sm text-gray-300 hover:bg-white/5">AI Tools</a><a href="#about" onclick="closeMob()" class="px-4 py-3 rounded-xl text-sm text-gray-300 hover:bg-white/5">About</a><a href="#pricing" onclick="closeMob()" class="px-4 py-3 rounded-xl text-sm text-gray-300 hover:bg-white/5">Pricing</a><a href="#contact" onclick="closeMob()" class="px-4 py-3 rounded-xl text-sm text-gray-300 hover:bg-white/5">Contact</a></div></div></div>
+</nav>
+
+<!-- HERO -->
+<section id="home" class="relative min-h-screen flex items-center justify-center hero-bg overflow-hidden">
+<div class="absolute top-1/4 left-1/4 w-96 h-96 bg-accent-500/10 rounded-full blur-3xl animate-float pointer-events-none"></div>
+<div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 text-center pt-24 pb-20">
+<h1 class="font-display font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[0.95] tracking-tight mb-6">One Platform.<br><span class="gradient-text">Unlimited AI</span> Power.</h1>
+<p class="text-base sm:text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10">Create content, edit videos, automate business, and grow social media using AI. Powered by GPT-level AI. Built by <span class="text-white font-medium">Mr Hamdan</span>.</p>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+<button onclick="openM('signup-m')" class="btn-primary px-8 py-4 rounded-2xl text-base font-semibold relative z-10 w-full sm:w-auto"><span class="relative z-10 flex items-center justify-center gap-2">Start Free <iconify-icon icon="ri-arrow-right-line" class="text-lg"></iconify-icon></span></button>
+<a href="#tools" class="btn-secondary px-8 py-4 rounded-2xl text-base font-semibold w-full sm:w-auto text-center">Try AI Tools</a>
+</div>
+</div>
+</section>
+
+<!-- TOOLS -->
+<section id="tools" class="py-24 relative">
+<div class="max-w-7xl mx-auto px-4 sm:px-6">
+<div class="text-center mb-16"><h2 class="font-display font-bold text-3xl sm:text-4xl md:text-5xl tracking-tight mb-4">75+ Real <span class="gradient-text">AI Tools</span></h2><p class="text-gray-400 max-w-2xl mx-auto">Click any tool → Enter prompt → Get real AI response. 100% Free to use.</p></div>
+<div class="flex flex-wrap justify-center gap-2 mb-12" id="tabs"></div>
+<div id="tgrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"></div>
+</div>
+</section>
+
+<!-- ABOUT (AdSense/SEO Requirement) -->
+<section id="about" class="py-24 bg-dark-800/50">
+<div class="max-w-4xl mx-auto px-4 sm:px-6">
+<div class="text-center mb-12"><h2 class="font-display font-bold text-3xl sm:text-4xl tracking-tight mb-4">About <span class="gradient-text">Hamdan AI</span></h2></div>
+<div class="text-gray-400 space-y-6 leading-relaxed text-base">
+<p><strong class="text-white">Hamdan AI</strong> is a next-generation artificial intelligence platform founded by <strong class="text-white">Mr Hamdan</strong>. Our mission is to democratize AI technology by making powerful tools accessible to everyone — from individual creators to large enterprises.</p>
+<p>With over 75+ specialized AI tools across 7 categories including writing, video editing, social media management, image generation, business automation, travel planning, and productivity — Hamdan AI is the most comprehensive AI SaaS platform available today.</p>
+<h3 class="text-white font-display font-semibold text-xl mt-8">Who Is It For?</h3>
+<ul class="list-disc pl-6 space-y-2">
+<li><strong class="text-white">Content Creators</strong> — Write articles, scripts, captions, and emails 10x faster</li>
+<li><strong class="text-white">Businesses</strong> — Automate invoices, proposals, CRM, and lead generation</li>
+<li><strong class="text-white">Social Media Managers</strong> — Generate captions, hashtags, and schedule posts</li>
+<li><strong class="text-white">Video Editors</strong> — Convert long videos to Shorts, generate subtitles automatically</li>
+<li><strong class="text-white">Travel Agencies</strong> — Build Umrah packages, track visas, generate quotations</li>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- BLOG (AdSense/SEO Requirement) -->
+<section id="blog" class="py-24">
+<div class="max-w-7xl mx-auto px-4 sm:px-6">
+<div class="text-center mb-16"><h2 class="font-display font-bold text-3xl sm:text-4xl tracking-tight mb-4">AI <span class="gradient-text">Blog & Insights</span></h2></div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<article class="glass-card rounded-2xl overflow-hidden group"><div class="relative overflow-hidden"><img src="https://picsum.photos/seed/ai-writing-blog/600/400" alt="AI writing tools for content creation" class="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy"></div><div class="p-6"><time class="text-xs text-accent-400" datetime="2025-01-15">January 15, 2025</time><h3 class="font-display font-semibold text-lg mb-3 mt-2">How AI is Revolutionizing Content Creation in 2025</h3><p class="text-sm text-gray-400 leading-relaxed mb-4">Discover how AI writing tools are helping creators produce SEO-optimized blog posts, marketing copy, and social media content 10x faster.</p><a href="#" class="text-sm text-accent-400 hover:text-white transition-colors">Read More →</a></div></article>
+<article class="glass-card rounded-2xl overflow-hidden group"><div class="relative overflow-hidden"><img src="https://picsum.photos/seed/ai-video-blog/600/400" alt="AI video editing for YouTube" class="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy"></div><div class="p-6"><time class="text-xs text-pink-400" datetime="2025-01-12">January 12, 2025</time><h3 class="font-display font-semibold text-lg mb-3 mt-2">The Ultimate Guide to AI Video Editing</h3><p class="text-sm text-gray-400 leading-relaxed mb-4">From auto-generating subtitles to converting long videos into viral Shorts, AI video tools are changing the game.</p><a href="#" class="text-sm text-accent-400 hover:text-white transition-colors">Read More →</a></div></article>
+<article class="glass-card rounded-2xl overflow-hidden group"><div class="relative overflow-hidden"><img src="https://picsum.photos/seed/ai-biz-blog/600/400" alt="AI business automation tools" class="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy"></div><div class="p-6"><time class="text-xs text-blue-400" datetime="2025-01-10">January 10, 2025</time><h3 class="font-display font-semibold text-lg mb-3 mt-2">7 AI Tools That Save 20 Hours a Week</h3><p class="text-sm text-gray-400 leading-relaxed mb-4">Stop wasting time on manual tasks. Learn how AI automation can scale your business while you focus on growth.</p><a href="#" class="text-sm text-accent-400 hover:text-white transition-colors">Read More →</a></div></article>
+</div>
+</div>
+</section>
+
+<!-- PRICING (With your PayPal) -->
+<section id="pricing" class="py-24 relative"><div class="max-w-7xl mx-auto px-4 sm:px-6"><div class="text-center mb-16"><h2 class="font-display font-bold text-3xl sm:text-4xl tracking-tight mb-4"><span class="gradient-text">Pricing</span></h2></div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+<div class="glass-card rounded-2xl p-8"><h3 class="font-display font-semibold text-xl mb-1">Free</h3><div class="mb-6 mt-4"><span class="font-display font-bold text-4xl">$0</span><span class="text-gray-500 text-sm">/mo</span></div><ul class="space-y-3 mb-8"><li class="flex items-center gap-2 text-sm text-gray-400"><iconify-icon icon="ri-check-line" class="text-gray-500 shrink-0"></iconify-icon>10 generations/day</li></ul><button onclick="openM('signup-m')" class="w-full btn-secondary py-3 rounded-xl text-sm font-semibold">Get Started</button></div>
+<div class="pricing-popular glass-card rounded-2xl p-8 relative" style="background:rgba(139,92,246,0.03)"><div class="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-accent-500 to-blue-500 text-xs font-bold uppercase whitespace-nowrap">Most Popular</div><h3 class="font-display font-semibold text-xl mb-1">Pro</h3><div class="mb-6 mt-4"><span class="font-display font-bold text-4xl">$19</span><span class="text-gray-500 text-sm">/mo</span></div><ul class="space-y-3 mb-8"><li class="flex items-center gap-2 text-sm text-gray-300"><iconify-icon icon="ri-check-line" class="text-accent-400 shrink-0"></iconify-icon>Unlimited AI access</li><li class="flex items-center gap-2 text-sm text-gray-300"><iconify-icon icon="ri-check-line" class="text-accent-400 shrink-0"></iconify-icon>All 75+ tools</li></ul>
+<!-- YOUR PAYPAL BUTTON -->
+<div id="paypal-container-688M45DJV4HRS"></div>
+</div>
+<div class="glass-card rounded-2xl p-8"><h3 class="font-display font-semibold text-xl mb-1">Enterprise</h3><div class="mb-6 mt-4"><span class="font-display font-bold text-4xl">$49</span><span class="text-gray-500 text-sm">/mo</span></div><ul class="space-y-3 mb-8"><li class="flex items-center gap-2 text-sm text-gray-300"><iconify-icon icon="ri-check-line" class="text-cyan-400 shrink-0"></iconify-icon>Everything in Pro</li><li class="flex items-center gap-2 text-sm text-gray-300"><iconify-icon icon="ri-check-line" class="text-cyan-400 shrink-0"></iconify-icon>Team + API</li></ul>
+<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=mrhamduofficial%40gmail.com&item_name=Hamdan+AI+Enterprise&amount=49&currency_code=USD" target="_blank" class="block w-full text-center py-3 rounded-xl text-sm font-bold bg-gradient-to-r from-yellow-400 to-orange-400 text-gray-900 hover:shadow-lg transition-all">Pay with PayPal</a>
+</div>
+</div></div></section>
+
+<!-- CONTACT (Formspree) -->
+<section id="contact" class="py-24"><div class="max-w-xl mx-auto px-4 sm:px-6"><div class="text-center mb-16"><h2 class="font-display font-bold text-3xl tracking-tight mb-4"><span class="gradient-text">Contact Us</span></h2></div>
+<form action="https://formspree.io/f/xlgvproz" method="POST" class="space-y-4">
+<input type="text" name="name" required placeholder="Your Name" class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-sm text-white placeholder:text-gray-600">
+<input type="email" name="email" required placeholder="Your Email" class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-sm text-white placeholder:text-gray-600">
+<textarea name="message" rows="4" required placeholder="Your Message" class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-sm text-white placeholder:text-gray-600 resize-none"></textarea>
+<button type="submit" class="w-full btn-primary py-3.5 rounded-xl text-sm font-semibold relative z-10"><span class="relative z-10">Send Message</span></button>
+</form></div></section>
+
+<!-- FOOTER -->
+<footer class="border-t border-white/5 py-8"><div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+<div class="flex items-center gap-2"><div class="w-8 h-8 rounded-lg bg-gradient-to-br from-accent-500 to-blue-500 flex items-center justify-center"><iconify-icon icon="ri-robot-2-fill" class="text-white text-sm"></iconify-icon></div><span class="font-display font-bold">Hamdan <span class="gradient-text">AI</span></span></div>
+<p class="text-xs text-gray-600">© <span id="yr"></span> Hamdan AI. All rights reserved.</p>
+<div class="flex items-center gap-4 flex-wrap justify-center"><a href="javascript:void(0)" onclick="openM('priv-m')" class="text-xs text-gray-500 hover:text-white transition-colors">Privacy Policy</a><a href="javascript:void(0)" onclick="openM('tos-m')" class="text-xs text-gray-500 hover:text-white transition-colors">Terms</a><a href="javascript:void(0)" onclick="openM('disc-m')" class="text-xs text-gray-500 hover:text-white transition-colors">Disclaimer</a><a href="#contact" class="text-xs text-gray-500 hover:text-white transition-colors">Contact</a></div>
+</div></footer>
+
+<!-- MODALS -->
+<div id="tool-m" class="fixed inset-0 z-[90] hidden items-center justify-center p-4 modal-backdrop"><div class="glass-strong rounded-2xl w-full max-w-2xl p-6 relative max-h-[85vh] overflow-y-auto" style="animation:scaleIn .3s ease"><button onclick="closeM('tool-m')" class="absolute top-4 right-4 w-8 h-8 rounded-lg hover:bg-white/5 flex items-center justify-center z-10"><iconify-icon icon="ri-close-line" class="text-gray-400"></iconify-icon></button><div id="tool-c"></div></div></div>
+<div id="priv-m" class="fixed inset-0 z-[90] hidden items-center justify-center p-4 modal-backdrop"><div class="glass-strong rounded-2xl w-full max-w-2xl p-8 relative max-h-[80vh] overflow-y-auto" style="animation:scaleIn .3s ease"><button onclick="closeM('priv-m')" class="absolute top-4 right-4 w-8 h-8 rounded-lg hover:bg-white/5 flex items-center justify-center"><iconify-icon icon="ri-close-line" class="text-gray-400"></iconify-icon></button><h2 class="font-display font-bold text-2xl mb-6">Privacy Policy</h2><div class="text-sm text-gray-400 space-y-4 leading-relaxed"><p>Effective Date: January 2025. Hamdan AI respects your privacy. We collect only necessary data (name, email) to provide our services. Payment data is processed securely via PayPal. We use AI APIs (Groq) to process tool requests. We do not sell your data. Contact: support@hamdanai.com</p></div></div></div>
+<div id="tos-m" class="fixed inset-0 z-[90] hidden items-center justify-center p-4 modal-backdrop"><div class="glass-strong rounded-2xl w-full max-w-2xl p-8 relative max-h-[80vh] overflow-y-auto" style="animation:scaleIn .3s ease"><button onclick="closeM('tos-m')" class="absolute top-4 right-4 w-8 h-8 rounded-lg hover:bg-white/5 flex items-center justify-center"><iconify-icon icon="ri-close-line" class="text-gray-400"></iconify-icon></button><h2 class="font-display font-bold text-2xl mb-6">Terms of Service</h2><div class="text-sm text-gray-400 space-y-4 leading-relaxed"><p>Effective Date: January 2025. By using Hamdan AI, you agree to these terms. AI-generated content belongs to you. You are responsible for reviewing AI outputs. Subscriptions are billed via PayPal and can be cancelled anytime. Contact: support@hamdanai.com</p></div></div></div>
+<div id="disc-m" class="fixed inset-0 z-[90] hidden items-center justify-center p-4 modal-backdrop"><div class="glass-strong rounded-2xl w-full max-w-2xl p-8 relative max-h-[80vh] overflow-y-auto" style="animation:scaleIn .3s ease"><button onclick="closeM('disc-m')" class="absolute top-4 right-4 w-8 h-8 rounded-lg hover:bg-white/5 flex items-center justify-center"><iconify-icon icon="ri-close-line" class="text-gray-400"></iconify-icon></button><h2 class="font-display font-bold text-2xl mb-6">Disclaimer</h2><div class="text-sm text-gray-400 space-y-4 leading-relaxed"><p>AI-generated content may contain errors. Users are solely responsible for reviewing and verifying all outputs before use. Hamdan AI is not liable for decisions made based on AI-generated content.</p></div></div></div>
+<div id="signup-m" class="fixed inset-0 z-[90] hidden items-center justify-center p-4 modal-backdrop"><div class="glass-strong rounded-2xl w-full max-w-md p-8 relative" style="animation:scaleIn .3s ease"><button onclick="closeM('signup-m')" class="absolute top-4 right-4 w-8 h-8 rounded-lg hover:bg-white/5 flex items-center justify-center"><iconify-icon icon="ri-close-line" class="text-gray-400"></iconify-icon></button><div class="text-center mb-8"><div class="w-12 h-12 rounded-xl bg-gradient-to-br from-accent-500 to-blue-500 flex items-center justify-center mx-auto mb-4"><iconify-icon icon="ri-robot-2-fill" class="text-white text-xl"></iconify-icon></div><h3 class="font-display font-bold text-xl">Create Account</h3></div><form onsubmit="event.preventDefault();toast('🎉 Account created!','success');setTimeout(()=>closeM('signup-m'),1500)" class="space-y-4"><input type="email" required placeholder="Email" class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-sm text-white placeholder:text-gray-600"><input type="password" required minlength="8" placeholder="Password" class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-sm text-white placeholder:text-gray-600"><button type="submit" class="w-full btn-primary py-3 rounded-xl text-sm font-semibold relative z-10"><span class="relative z-10">Create Free Account</span></button></form></div></div>
+
+<!-- PayPal Hosted Button Script -->
+<script>
+  paypal.HostedButtons({
+    hostedButtonId: "688M45DJV4HRS",
+  }).render("#paypal-container-688M45DJV4HRS");
+</script>
+
+<!-- Main Logic -->
+<script>
+let genRunning=false;
+const T={
+writing:[{n:'AI Article Writer',i:'ri-article-fill',c:'accent',d:'Generate full SEO articles',p:'Write a comprehensive, SEO-optimized article about'},{n:'SEO Blog Generator',i:'ri-search-eye-fill',c:'blue',d:'SEO-optimized blog posts',p:'Write an SEO blog post targeting the keyword'},{n:'AI Humanizer',i:'ri-body-scan-fill',c:'cyan',d:'Make AI text sound natural',p:'Rewrite the following text to sound natural and human-written:\n\n'},{n:'Paragraph Rewriter',i:'ri-file-edit-fill',c:'pink',d:'Rewrite with different tones',p:'Rewrite the following in professional, casual, and persuasive tones:\n\n'},{n:'Grammar Fixer',i:'ri-spellcheck-fill',c:'green',d:'Fix grammar & spelling',p:'Fix all grammar, spelling, and punctuation errors:\n\n'},{n:'Email Writer',i:'ri-mail-send-fill',c:'accent',d:'Professional emails',p:'Write a professional email about'},{n:'Product Description',i:'ri-shopping-bag-fill',c:'blue',d:'Product descriptions',p:'Write a compelling product description for'},{n:'Ad Copy Generator',i:'ri-megaphone-fill',c:'pink',d:'High-converting ads',p:'Write 3 high-converting Facebook ad copies for'},{n:'Script Generator',i:'ri-file-text-fill',c:'cyan',d:'Video scripts',p:'Write a 60-second YouTube Shorts script about'},{n:'Resume Builder',i:'ri-profile-fill',c:'green',d:'Professional resumes',p:'Create a professional resume for a'},{n:'Cover Letter Gen',i:'ri-mail-fill',c:'accent',d:'Cover letters',p:'Write a tailored cover letter for a'}],
+video:[{n:'Video to Shorts',i:'ri-scissors-cut-fill',c:'pink',d:'Long video → shorts',p:'Create 3 viral YouTube Shorts scripts about'},{n:'AI Subtitles',i:'ri-closed-captioning-fill',c:'blue',d:'Auto subtitles',p:'Generate SRT subtitles for this transcript:\n\n'},{n:'Viral Hook Gen',i:'ri-fire-fill',c:'accent',d:'Attention hooks',p:'Write 5 viral video hooks about'},{n:'Auto Caption',i:'ri-text-fill',c:'cyan',d:'Social captions',p:'Create animated captions for a video about'},{n:'Thumbnail Gen',i:'ri-image-edit-fill',c:'pink',d:'Thumbnails',p:'Design a YouTube thumbnail for a video titled'},{n:'AI Voiceover',i:'ri-mic-fill',c:'green',d:'Voiceovers',p:'Write a voiceover script for a video about'},{n:'Video Script',i:'ri-movie-2-fill',c:'blue',d:'Video scripts',p:'Write a 5-minute YouTube script about'},{n:'Reels Optimizer',i:'ri-instagram-fill',c:'accent',d:'Optimize Reels',p:'Give best posting time, hashtags, and audio for a Reel about'}],
+social:[{n:'Instagram Captions',i:'ri-instagram-fill',c:'pink',d:'IG captions',p:'Write 3 engaging Instagram captions about'},{n:'Hashtag Generator',i:'ri-hashtag',c:'blue',d:'Trending hashtags',p:'Generate 30 trending hashtags for Instagram about'},{n:'Social Scheduler',i:'ri-calendar-schedule-fill',c:'accent',d:'Schedule posts',p:'Create a weekly posting schedule for a brand about'},{n:'Auto Posting',i:'ri-send-plane-fill',c:'cyan',d:'Auto posting',p:'Create 7 days of content for automated posting about'},{n:'YouTube SEO',i:'ri-youtube-fill',c:'pink',d:'YouTube optimization',p:'Generate title, description, and tags for a YouTube video about'},{n:'Viral Reel Ideas',i:'ri-movie-fill',c:'green',d:'Reel ideas',p:'Generate 5 viral Reel ideas for an account about'},{n:'Comment Reply AI',i:'ri-chat-check-fill',c:'blue',d:'Comment replies',p:'Write engaging replies to this comment:\n\n'}],
+image:[{n:'AI Image Prompt',i:'ri-image-add-fill',c:'accent',d:'Image prompts',p:'Create a detailed Midjourney image prompt for'},{n:'Background Remover',i:'ri-eraser-fill',c:'blue',d:'Remove backgrounds',p:'Describe step-by-step how to remove background from'},{n:'Image Upscaler',i:'ri-zoom-in-fill',c:'cyan',d:'Enhance resolution',p:'Recommend AI upscaling techniques for'},{n:'Logo Generator',i:'ri-palette-fill',c:'pink',d:'Logo concepts',p:'Describe 3 professional logo concepts for a brand called'},{n:'Thumbnail Maker',i:'ri-image-edit-fill',c:'green',d:'Video thumbnails',p:'Design a thumbnail layout for a video titled'},{n:'Poster Generator',i:'ri-gallery-fill',c:'accent',d:'Marketing posters',p:'Design a marketing poster layout for'},{n:'AI Avatar',i:'ri-user-smile-fill',c:'blue',d:'Avatars',p:'Describe 5 avatar styles for a person who is'}],
+business:[{n:'Invoice Generator',i:'ri-receipt-fill',c:'green',d:'Invoices',p:'Generate a professional invoice for'},{n:'CRM Dashboard',i:'ri-contacts-book-fill',c:'blue',d:'Customer management',p:'Design a CRM dashboard for a business that'},{n:'Proposal Generator',i:'ri-file-paper-fill',c:'accent',d:'Proposals',p:'Write a business proposal for'},{n:'Business Name',i:'ri-store-fill',c:'pink',d:'Business names',p:'Generate 10 business names for a'},{n:'Chatbot Builder',i:'ri-robot-fill',c:'cyan',d:'AI chatbots',p:'Design a chatbot flow for a business selling'},{n:'WhatsApp Marketing',i:'ri-whatsapp-fill',c:'green',d:'WhatsApp campaigns',p:'Create a 5-message WhatsApp campaign for'},{n:'Lead Generator',i:'ri-user-add-fill',c:'blue',d:'Lead generation',p:'Write a cold outreach email sequence for'}],
+travel:[{n:'Visa Tracker',i:'ri-passport-fill',c:'blue',d:'Visa tracking',p:'Create a visa tracking template for a'},{n:'Flight Checker',i:'ri-plane-fill',c:'accent',d:'Flight comparison',p:'Create a flight comparison for routes between'},{n:'Ticket Generator',i:'ri-ticket-fill',c:'cyan',d:'Travel tickets',p:'Generate an e-ticket for a flight from'},{n:'Umrah Packages',i:'ri-mosque-fill',c:'green',d:'Umrah packages',p:'Create a 7-day Umrah package from'},{n:'Agency CRM',i:'ri-building-fill',c:'pink',d:'Agency operations',p:'Design a travel agency CRM for'},{n:'Passenger Manager',i:'ri-group-fill',c:'blue',d:'Passenger data',p:'Create a passenger manifest for'},{n:'WhatsApp Quote',i:'ri-whatsapp-fill',c:'green',d:'Travel quotes',p:'Write a WhatsApp travel quote for'}],
+productivity:[{n:'PDF Summarizer',i:'ri-file-pdf-2-fill',c:'pink',d:'Summarize PDFs',p:'Summarize this text into key points:\n\n'},{n:'PDF to Word',i:'ri-file-word-fill',c:'blue',d:'Convert PDF',p:'Provide steps to convert PDF to Word for'},{n:'AI Notes',i:'ri-sticky-note-fill',c:'accent',d:'Structured notes',p:'Create organized notes from this content:\n\n'},{n:'Meeting Summary',i:'ri-team-fill',c:'cyan',d:'Meeting notes',p:'Summarize this meeting with action items:\n\n'},{n:'Task Planner',i:'ri-task-fill',c:'green',d:'Task planning',p:'Create a weekly task plan for'},{n:'Calendar AI',i:'ri-calendar-todo-fill',c:'blue',d:'Calendar management',p:'Create an optimized schedule for a'}]
+};
+const CM={accent:{bg:'rgba(139,92,246,0.1)',t:'#a78bfa'},blue:{bg:'rgba(59,130,246,0.1)',t:'#60a5fa'},cyan:{bg:'rgba(6,182,212,0.1)',t:'#22d3ee'},pink:{bg:'rgba(236,72,153,0.1)',t:'#f472b6'},green:{bg:'rgba(34,197,94,0.1)',t:'#4ade80'}};
+const CI={writing:'ri-quill-pen-fill',video:'ri-video-fill',social:'ri-instagram-fill',image:'ri-image-fill',business:'ri-briefcase-fill',travel:'ri-plane-fill',productivity:'ri-checkbox-circle-fill'};
+
+function renderTabs(){document.getElementById('tabs').innerHTML=Object.keys(T).map((c,i)=>`<button onclick="swTab('${c}')" class="tool-tab ${i===0?'tab-active':''} px-4 py-2 rounded-xl text-sm font-medium glass transition-all" data-t="${c}"><iconify-icon icon="${CI[c]}" class="mr-1"></iconify-icon>${c[0].toUpperCase()+c.slice(1)}</button>`).join('')}
+let curTab='writing';
+function swTab(c){if(c===curTab)return;curTab=c;document.querySelectorAll('.tool-tab').forEach(t=>t.classList.remove('tab-active'));document.querySelector(`.tool-tab[data-t="${c}"]`)?.classList.add('tab-active');renderGrid(c)}
+function renderGrid(c){document.getElementById('tgrid').innerHTML=T[c].map((t,i)=>{const cl=CM[t.c]||CM.accent;return`<div class="glass-card rounded-xl p-5 group cursor-pointer" onclick="openTool('${c}',${i})" style="animation:fadeUp .5s ease ${i*.05}s forwards;opacity:0"><div class="tool-icon mb-3 group-hover:scale-110 transition-transform" style="background:${cl.bg};color:${cl.t}"><iconify-icon icon="${t.i}"></iconify-icon></div><h4 class="font-display font-semibold text-sm mb-1 group-hover:text-accent-400 transition-colors">${t.n}</h4><p class="text-xs text-gray-500 leading-relaxed">${t.d}</p></div>`}).join('')}
+
+function openTool(c,i){
+if(genRunning)return;
+const t=T[c][i],cl=CM[t.c]||CM.accent;
+document.getElementById('tool-c').innerHTML=`
+<div class="flex items-center gap-3 mb-6"><div class="tool-icon" style="background:${cl.bg};color:${cl.t}"><iconify-icon icon="${t.i}"></iconify-icon></div><div><h3 class="font-display font-bold text-xl">${t.n}</h3><p class="text-sm text-gray-500">${t.d}</p></div></div>
+<div class="space-y-4">
+<div><label class="text-xs font-medium text-gray-400 mb-2 block">Your Prompt</label><textarea id="t-inp" rows="4" class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-sm text-white placeholder:text-gray-600 resize-none" placeholder="${t.p}..."></textarea></div>
+<button id="gen-btn" onclick="runGen('${c}',${i})" class="w-full btn-primary py-3 rounded-xl text-sm font-semibold relative z-10"><span class="relative z-10 flex items-center justify-center gap-2"><iconify-icon icon="ri-sparkling-fill"></iconify-icon>Generate with AI</span></button>
+<div id="out-area" class="hidden">
+<div class="flex items-center justify-between mb-2"><label class="text-xs font-medium text-gray-400">AI Response</label><button onclick="navigator.clipboard.writeText(document.getElementById('t-out')?.textContent);toast('✅ Copied!','success')" class="text-xs text-accent-400 hover:text-white flex items-center gap-1"><iconify-icon icon="ri-file-copy-line"></iconify-icon>Copy</button></div>
+<div id="t-out" class="glass rounded-xl p-4 text-sm text-gray-300 leading-relaxed min-h-[150px] whitespace-pre-wrap"></div>
+</div></div>`;
+openM('tool-m');
+}
+
+async function runGen(c,i){
+if(genRunning)return;
+genRunning=true;
+const btn=document.getElementById('gen-btn'),outArea=document.getElementById('out-area'),outEl=document.getElementById('t-out'),inputEl=document.getElementById('t-inp'),t=T[c][i];
+const userPrompt=inputEl.value.trim()||`${t.p} [AI technology]`;
+btn.innerHTML='<span class="relative z-10 flex items-center justify-center gap-2"><span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span></span>';
+btn.style.pointerEvents='none';outArea.classList.remove('hidden');outEl.textContent='';
+try{
+const response=await fetch('/api/generate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({prompt:userPrompt})});
+if(!response.ok)throw new Error('Server error');
+const reader=response.body.getReader();const decoder=new TextDecoder();
+while(true){const{done,value}=await reader.read();if(done)break;outEl.textContent+=decoder.decode(value,{stream:true});outEl.scrollTop=outEl.scrollHeight;}
+}catch(e){outEl.textContent=`⚠️ Error: Could not reach AI.\n\nFix: Make sure Groq API Key is set in Vercel.\n\n${e.message}`;
+}finally{genRunning=false;btn.innerHTML='<span class="relative z-10 flex items-center justify-center gap-2"><iconify-icon icon="ri-sparkling-fill"></iconify-icon>Generate Again</span>';btn.style.pointerEvents='auto';}
+}
+
+function openM(id){if(aM)closeM(aM);const m=document.getElementById(id);if(!m)return;m.classList.remove('hidden');m.classList.add('flex');document.body.style.overflow='hidden';aM=id}
+function closeM(id){if(genRunning&&id==='tool-m'){genRunning=false}const m=document.getElementById(id);if(!m)return;m.classList.add('hidden');m.classList.remove('flex');document.body.style.overflow='';if(aM===id)aM=null}
+document.addEventListener('click',e=>{if(aM&&e.target===document.getElementById(aM))closeM(aM)});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&aM)closeM(aM)});
+let aM=null,mobOn=false;
+function toggleMob(){mobOn=!mobOn;const m=document.getElementById('mob-menu'),i=document.getElementById('hb-i');m.style.maxHeight=mobOn?'500px':'0';m.style.opacity=mobOn?'1':'0';i.setAttribute('icon',mobOn?'ri-close-line':'ri-menu-3-line')}
+function closeMob(){if(!mobOn)return;mobOn=false;document.getElementById('mob-menu').style.maxHeight='0';document.getElementById('mob-menu').style.opacity='0';document.getElementById('hb-i').setAttribute('icon','ri-menu-3-line')}
+window.addEventListener('scroll',()=>{const n=document.getElementById('navbar');if(window.scrollY>50)n.classList.add('glass-strong');else n.classList.remove('glass-strong')},{passive:true});
+function toast(msg,type='info'){const c=document.getElementById('toast-box'),cl=type==='success'?'from-green-500/20 border-green-500/20':type==='error'?'from-red-500/20 border-red-500/20':'from-accent-500/20 border-accent-500/20',ic=type==='success'?'ri-check-line text-green-400':type==='error'?'ri-error-warning-line text-red-400':'ri-information-line text-accent-400',t=document.createElement('div');t.className=`glass-strong rounded-xl px-4 py-3 flex items-center gap-3 min-w-[280px] max-w-sm border bg-gradient-to-r ${cl} pointer-events-auto`;t.style.animation='fadeUp .4s ease forwards';t.innerHTML=`<iconify-icon icon="${ic}" class="text-lg shrink-0"></iconify-icon><span class="text-sm text-gray-200">${msg}</span>`;c.appendChild(t);setTimeout(()=>{t.style.opacity='0';t.style.transform='translateX(100px)';t.style.transition='all .3s';setTimeout(()=>t.remove(),300)},4000)}
+document.addEventListener('DOMContentLoaded',()=>{renderTabs();renderGrid('writing');document.getElementById('yr').textContent=new Date().getFullYear();});
+</script>
+</body>
+</html>
