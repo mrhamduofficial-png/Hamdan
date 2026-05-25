@@ -1,3 +1,5 @@
+export const config = { runtime: 'nodejs' };
+
 export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).end();
 
@@ -31,7 +33,7 @@ export default async function handler(req, res) {
 
     if (!groqRes.ok) {
       const errText = await groqRes.text();
-      return res.status(500).send('Groq API Error: ' + errText);
+      return res.status(500).send('Groq Error: ' + errText);
     }
 
     const data = await groqRes.json();
@@ -39,6 +41,6 @@ export default async function handler(req, res) {
     res.status(200).send(text);
 
   } catch (e) {
-    res.status(500).send('Server Error: ' + e.message);
+    res.status(500).send('Error: ' + e.message);
   }
 }
