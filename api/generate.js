@@ -18,7 +18,7 @@ export default async function handler(req, res) {
         'X-Title': 'Hamdan AI'
       },
       body: JSON.stringify({
-        model: 'google/gemini-2.0-flash-exp:free',
+        model: 'meta-llama/llama-3.1-8b-instruct:free',
         messages: [
           { role: 'system', content: 'You are Hamdan AI, a helpful assistant. Give detailed and helpful responses.' },
           { role: 'user', content: prompt }
