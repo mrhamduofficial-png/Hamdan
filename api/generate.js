@@ -1,73 +1,56 @@
 export default async function handler(req, res) {
-  // Enable CORS
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-
-  if (req.method === "OPTIONS") {
-    return res.status(200).end();
-  }
-
-  // Only allow POST requests
-  if (req.method !== "POST") {
-    return res.status(405).json({ error: "Method not allowed" });
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Method not allowed' });
   }
 
   const { prompt } = req.body;
 
-  if (!prompt || typeof prompt !== "string") {
-    return res.status(400).json({ error: "Invalid or missing prompt" });
-  }
-
-  // Check if API key exists
-  const apiKey = process.env.GOOGLE_GEMINI_API_KEY;
-  if (!apiKey) {
-    console.error("GOOGLE_GEMINI_API_KEY not found in environment variables");
-    return res.status(500).json({ error: "API key not configured. Contact admin." });
+  if (!prompt) {
+    return res.status(400).json({ error: 'Prompt is required' });
   }
 
   try {
-    const response = await fetch("https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=" + apiKey, {
-      method: "POST",
+    // Check if OpenAI API key is configured
+    const apiKey = process.env.OPENAI_API_KEY;
+    if (!apiKey) {
+      return res.status(500).json({ 
+        error: 'AI service not configured. Please add OPENAI_API_KEY to environment variables.' 
+      });
+    }
+
+    // Call OpenAI API
+    const response = await fetch('https://api.openai.com/v1/chat/completions', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${apiKey}`
       },
       body: JSON.stringify({
-        contents: [
+        model: 'gpt-3.5-turbo',
+        messages: [
           {
-            parts: [
-              {
-                text: prompt,
-              },
-            ],
-          },
+            role: 'user',
+            content: prompt
+          }
         ],
-        generationConfig: {
-          temperature: 0.7,
-          topK: 40,
-          topP: 0.95,
-          maxOutputTokens: 2048,
-        },
-      }),
+        temperature: 0.7,
+        max_tokens: 1024
+      })
     });
 
     if (!response.ok) {
-      const errorData = await response.json();
-      console.error("Google API Error:", errorData);
+      const error = await response.json();
       return res.status(response.status).json({ 
-        error: errorData.error?.message || "Failed to generate content" 
+        error: error.error?.message || 'OpenAI API error' 
       });
     }
 
     const data = await response.json();
-    const text = data.candidates?.[0]?.content?.parts?.[0]?.text || "No response generated";
+    const generatedText = data.choices[0]?.message?.content || '';
 
-    // Return the generated text
-    res.status(200).send(text);
+    res.status(200).send(generatedText);
   } catch (error) {
-    console.error("API Error Details:", error);
-    res.status(500).json({
-      error: error.message || "Failed to generate content",
-    });
+    console.error('API Error:', error);
+    res.status(500).json({ error: error.message || 'Internal server error' });
   }
 }
