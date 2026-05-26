@@ -1,42 +1,56 @@
+import { GoogleGenerativeAI } from "@google/generative-ai";
+
 export default async function handler(req, res) {
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' });
+  // Enable CORS
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+
+  if (req.method === "OPTIONS") {
+    return res.status(200).end();
   }
-  
+
+  // Only allow POST requests
+  if (req.method !== "POST") {
+    return res.status(405).json({ error: "Method not allowed" });
+  }
+
   const { prompt } = req.body;
-  if (!prompt) {
-    return res.status(400).json({ error: 'No prompt provided' });
+
+  if (!prompt || typeof prompt !== "string") {
+    return res.status(400).json({ error: "Invalid or missing prompt" });
   }
-  
+
+  // Check if API key exists
+  const apiKey = process.env.GOOGLE_GEMINI_API_KEY;
+  if (!apiKey) {
+    console.error("GOOGLE_GEMINI_API_KEY not found in environment variables");
+    return res.status(500).json({ error: "API key not configured. Contact admin." });
+  }
+
   try {
-    const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${process.env.OPENROUTER_API_KEY}`,
-        'Content-Type': 'application/json',
-        'HTTP-Referer': 'https://hamdan-mocha.vercel.app',
-        'X-Title': 'Hamdan AI'
-      },
-      body: JSON.stringify({
-        model: 'meta-llama/llama-3.1-8b-instruct:free',
-        messages: [
-          { role: 'system', content: 'You are Hamdan AI, a helpful assistant. Give detailed and helpful responses.' },
-          { role: 'user', content: prompt }
-        ],
-        max_tokens: 1024
-      })
-    });
-    
-    if (!response.ok) {
-      const errText = await response.text();
-      return res.status(500).json({ error: 'API Error: ' + errText });
+    const genAI = new GoogleGenerativeAI(apiKey);
+    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    const result = await model.generateContent(prompt);
+    const response = result.response;
+    const text = response.text();
+
+    // Return the generated text
+    res.status(200).send(text);
+  } catch (error) {
+    console.error("API Error Details:", error);
+
+    // Handle specific error types
+    if (error.message && error.message.includes("401")) {
+      return res.status(401).json({ 
+        error: "Authentication failed. API key is invalid or expired. Check Vercel environment variables." 
+      });
+    } else if (error.message && error.message.includes("quota")) {
+      return res.status(429).json({ error: "Rate limit exceeded. Try again later." });
     }
-    
-    const data = await response.json();
-    const text = data.choices?.[0]?.message?.content || 'No response generated';
-    res.status(200).json({ text });
-    
-  } catch (e) {
-    res.status(500).json({ error: e.message });
+
+    res.status(500).json({
+      error: error.message || "Failed to generate content",
+    });
   }
 }
