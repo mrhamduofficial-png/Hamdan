@@ -1,5 +1,3 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
-
 export default async function handler(req, res) {
   // Enable CORS
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -29,26 +27,39 @@ export default async function handler(req, res) {
   }
 
   try {
-    const genAI = new GoogleGenerativeAI(apiKey);
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-    const result = await model.generateContent(prompt);
-    const response = result.response;
-    const text = response.text();
+    const response = await fetch("https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=" + apiKey, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        contents: [
+          {
+            parts: [
+              {
+                text: prompt,
+              },
+            ],
+          },
+        ],
+      }),
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      console.error("Google API Error:", errorData);
+      return res.status(response.status).json({ 
+        error: errorData.error?.message || "Failed to generate content" 
+      });
+    }
+
+    const data = await response.json();
+    const text = data.candidates?.[0]?.content?.parts?.[0]?.text || "No response generated";
 
     // Return the generated text
     res.status(200).send(text);
   } catch (error) {
     console.error("API Error Details:", error);
-
-    // Handle specific error types
-    if (error.message && error.message.includes("401")) {
-      return res.status(401).json({ 
-        error: "Authentication failed. API key is invalid or expired. Check Vercel environment variables." 
-      });
-    } else if (error.message && error.message.includes("quota")) {
-      return res.status(429).json({ error: "Rate limit exceeded. Try again later." });
-    }
-
     res.status(500).json({
       error: error.message || "Failed to generate content",
     });
