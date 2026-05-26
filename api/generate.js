@@ -1,8 +1,6 @@
-import Anthropic from "@anthropic-ai/sdk";
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
-const client = new Anthropic({
-  apiKey: process.env.ANTHROPIC_API_KEY,
-});
+const genAI = new GoogleGenerativeAI(process.env.GOOGLE_GEMINI_API_KEY);
 
 export default async function handler(req, res) {
   // Only allow POST requests
@@ -17,37 +15,23 @@ export default async function handler(req, res) {
   }
 
   try {
-    const message = await client.messages.create({
-      model: "claude-3-5-sonnet-20241022",
-      max_tokens: 1024,
-      messages: [
-        {
-          role: "user",
-          content: prompt,
-        },
-      ],
-    });
-
-    // Extract the text content from the response
-    const textContent = message.content.find((block) => block.type === "text");
-    if (!textContent || textContent.type !== "text") {
-      return res.status(500).json({ error: "Unexpected response format" });
-    }
+    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    const result = await model.generateContent(prompt);
+    const response = result.response;
+    const text = response.text();
 
     // Return the generated text
-    res.status(200).send(textContent.text);
+    res.status(200).send(text);
   } catch (error) {
     console.error("API Error:", error);
 
     // Handle specific error types
-    if (error.status === 401) {
+    if (error.message.includes("API key")) {
       return res
         .status(401)
         .json({ error: "Authentication failed. Check API key." });
-    } else if (error.status === 429) {
+    } else if (error.message.includes("quota")) {
       return res.status(429).json({ error: "Rate limit exceeded. Try again later." });
-    } else if (error.status === 500) {
-      return res.status(500).json({ error: "AI service error. Try again." });
     }
 
     res.status(500).json({
